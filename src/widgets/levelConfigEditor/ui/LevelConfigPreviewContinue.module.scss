@@ -1,0 +1,81 @@
+@use '@/shared/styles/mixins' as *;
+
+// Плашка лежит на доске превью (`.stage` - `position: relative`) и только на
+// ней: колонки редактора вокруг остаются доступны, пока автор решает.
+.overlay {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay-scrim);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-modal);
+  color: var(--colors-white);
+  text-align: center;
+  @include option(gap, 10);
+  @include option(padding, 14 18);
+  @include option(border-radius, 12);
+  @include option(font-size, 12);
+}
+
+.title {
+  font-weight: 800;
+  @include option(font-size, 14);
+}
+
+.goals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include option(gap, 8);
+}
+
+.goal {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  @include option(gap, 4);
+}
+
+.icon {
+  @include option(width, 24);
+  @include option(height, 24);
+}
+
+.actions {
+  display: flex;
+  @include option(gap, 8);
+}
+
+.primary,
+.secondary {
+  border: 0;
+  color: var(--colors-white);
+  font: inherit;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  @include option(padding, 6 14);
+  @include option(border-radius, 8);
+}
+
+.primary {
+  background: var(--violet-2);
+}
+
+.secondary {
+  border: 1px solid var(--border-dark);
+  background: var(--bg-sunken);
+}

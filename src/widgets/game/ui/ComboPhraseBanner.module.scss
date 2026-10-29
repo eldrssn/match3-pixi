@@ -1,0 +1,54 @@
+@use '@/shared/styles/mixins' as *;
+
+// Хайп-фраза встаёт по центру игрового поля - и по вертикали, и по горизонтали
+// (Figma node 18938-26622: инстанс `encouraging text` центрирован на сетке).
+// Оверлей растянут на весь `.board` в `GameScreen.module.scss`, поэтому центр
+// флекса совпадает с центром доски.
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5%;
+  pointer-events: none;
+}
+
+// Стиль по референсу "ОБА-НА!" (Figma node 18938-27111): белое лицо букв,
+// сиреневая обводка глифов, фиолетовое эхо снизу (`--wb`) и мягкая чёрная тень.
+//
+// Обводка - `-webkit-text-stroke` на самом глифе, но с `paint-order: stroke`:
+// обводка рисуется ПОД непрозрачной белой заливкой. `-webkit-text-stroke`
+// центрированный - половина толщины уходит внутрь глифа, и на тонкой перекладине
+// «А» внутренние половины с двух краёв сходятся в видимый шов. Заливка,
+// нарисованная поверх, закрывает внутреннюю половину обводки вместе со швом;
+// снаружи остаётся ровный контур. Поэтому лицо - сплошной
+// `-webkit-text-fill-color`, а НЕ `background-clip: text`: клип-текст рисуется
+// как фон (в самом низу) и закрыть шов не может (видно по результату - белого нет,
+// линии внутри букв).
+.text {
+  margin: 0;
+  font-family: var(--font-family);
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: normal;
+  line-height: 0.89;
+  @include option(font-size, 42);
+  @include option(max-width, 320);
+
+  color: var(--colors-white);
+  -webkit-text-fill-color: var(--colors-white);
+  // В `em`, а не дизайн-px: кегль фразы ужимается под ширину строки
+  // (`resolveComboPhraseFontSizePx`), и обводка должна ужиматься вместе с ним,
+  // иначе на мелком тексте становится непропорционально толстой.
+  -webkit-text-stroke: 0.09em var(--violet-1);
+  paint-order: stroke fill;
+  // Фиолетовое эхо снизу + мягкая чёрная тень макета (первая в списке - сверху).
+  text-shadow:
+    0 calc(2.5 * var(--design-px, 1px)) 0 var(--wb),
+    0 calc(8 * var(--design-px, 1px)) calc(20 * var(--design-px, 1px)) rgb(0 0 0 / 55%);
+}

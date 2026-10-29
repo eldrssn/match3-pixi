@@ -1,0 +1,77 @@
+{
+  "formatVersion": 2,
+  "id": 24,
+  "title": "Слизь",
+  "moves": 18,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [
+    { "id": "slime", "count": 4 },
+    { "id": "red", "count": 25 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [13100, 20900]
+}

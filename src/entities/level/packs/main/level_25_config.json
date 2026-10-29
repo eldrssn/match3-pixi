@@ -1,0 +1,78 @@
+{
+  "formatVersion": 2,
+  "id": 25,
+  "title": "Слизь и ящики",
+  "moves": 12,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [
+    { "id": "slime", "count": 5 },
+    { "id": "cargo", "count": 2 },
+    { "id": "yellow", "count": 30 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [13500, 18900]
+}

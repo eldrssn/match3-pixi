@@ -1,0 +1,26 @@
+@use './controls' as controls;
+
+.field {
+  @include controls.field;
+}
+
+.input {
+  @include controls.input-control;
+}
+
+.stepper {
+  display: flex;
+  gap: 4px;
+}
+
+.stepButton {
+  @include controls.button-secondary(0);
+
+  flex: 0 0 38px;
+  font-size: 16px;
+}
+
+.stepButton:disabled {
+  cursor: default;
+  opacity: 0.45;
+}

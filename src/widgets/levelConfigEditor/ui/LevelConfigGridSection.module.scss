@@ -1,0 +1,109 @@
+@use './controls' as controls;
+
+.section {
+  @include controls.section;
+}
+
+.toolHint,
+.cellInfo {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.cellInfo {
+  min-height: 17px;
+  color: var(--text-dim);
+}
+
+.cellInfoRefusal {
+  color: var(--colors-error);
+}
+
+.grid {
+  display: flex;
+  width: fit-content;
+  user-select: none;
+  touch-action: none;
+  gap: 4px;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  background: var(--bg-sunken);
+  padding: 6px;
+}
+
+.gridColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gridCell {
+  position: relative;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  background: var(--bg-raised);
+  padding: 0;
+  cursor: crosshair;
+}
+
+.gridCell:hover {
+  border-color: var(--violet-2);
+}
+
+.gridCellEmpty {
+  border-style: dashed;
+  opacity: 0.72;
+}
+
+// Дыра - клетки нет: прозрачная, видна только пунктирная граница.
+.gridCellHole {
+  border-style: dashed;
+  background: transparent;
+}
+
+.cellIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+// Подложка - фон клетки: один слой мягкий, два - насыщенный с двойной рамкой.
+.gridCellFloor {
+  border-color: var(--floor-border);
+  background: var(--floor-1);
+}
+
+.gridCellFloorDouble {
+  border: 2px double var(--floor-border);
+  background: var(--floor-2);
+}
+
+// Накладка (лёд, цепь) - поверх фишки во всю клетку, как в игре.
+.overlayIcon {
+  position: absolute;
+  inset: 1px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.layersBadge {
+  position: absolute;
+  right: 2px;
+  bottom: 1px;
+  min-width: 14px;
+  border-radius: 7px;
+  background: var(--bg-sunken);
+  color: var(--colors-white);
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 14px;
+  text-align: center;
+  pointer-events: none;
+}

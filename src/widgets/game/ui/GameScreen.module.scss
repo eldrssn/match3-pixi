@@ -1,0 +1,64 @@
+@use './sceneInsets' as *;
+
+// Экран партии занимает всю область, которую ему отдал хост, без полей. Фона
+// у экрана нет - его рисует хост; канвас занимает ровно `.board`.
+.screen {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  color: var(--colors-white);
+}
+
+.board {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+// Рантайм получает отдельную блокировку на уровне DOM в дополнение к
+// замку ввода сцены (`stage.eventMode = 'none'`). Это защищает от кликов по canvas через modal
+// overlay при нестандартном stacking context WebView/браузера.
+.boardLocked {
+  pointer-events: none;
+}
+
+// Зонд безопасной зоны: пустой узел от верхнего до нижнего отступа. Рантайм
+// CSS-переменные читать не умеет, поэтому отступы снимаются с этого бокса
+// (`lib/measureSceneInsets`) и уходят в раскладку сцены (`lib/sceneLayout`).
+.safeArea {
+  position: absolute;
+  top: $inset-top;
+  bottom: $inset-bottom;
+  left: 0;
+  width: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+// Канвас центрируется здесь: рантайм размер ставит, а позицию - нет, и без
+// этого канвас прижимается к левому верхнему углу. Центровка нужна и при
+// совпадающих размерах: CSS-размер канваса округлён до целых пикселей и может
+// отстать от доски на пиксель.
+.canvasMount {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+
+  // Ширину и высоту канваса пишет сам рантайм (`autoDensity` Pixi, см.
+  // `configs/renderScale.ts`); здесь остаётся только то, что к разрешению
+  // отношения не имеет - инлайновый канвас иначе ловит baseline-отступ.
+  canvas {
+    display: block;
+    margin: 0;
+  }
+}

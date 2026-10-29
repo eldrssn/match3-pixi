@@ -1,0 +1,40 @@
+@use '@/shared/styles/shared' as *;
+
+.actions {
+  display: flex;
+  width: min(100% - #{to-design-px(32)}, #{to-design-px(260)});
+  flex-direction: column;
+  @include option(margin-top, 16);
+  @include option(gap, 12);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  @include option(min-height, 48);
+  @include option(border-radius, 10);
+  @include option(font-size, 18);
+
+  &:hover {
+    background: var(--bg-modal-top);
+  }
+
+  &:active {
+    background: var(--bg-sunken);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--colors-white);
+    outline-offset: 3px;
+  }
+}

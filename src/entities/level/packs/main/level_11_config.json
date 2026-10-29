@@ -1,0 +1,74 @@
+{
+  "formatVersion": 2,
+  "id": 11,
+  "title": "Крепкие ящики",
+  "moves": 20,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [{ "id": "cargo", "count": 8 }],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 }
+    ]
+  ],
+  "starScores": [16800, 23000]
+}

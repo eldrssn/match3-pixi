@@ -1,0 +1,80 @@
+// Общие контролы dev-конструктора уровней.
+//
+// Секции редактора разнесены по своим компонентам, и у каждого - свой
+// `*.module.scss` (правило проекта: один компонент - один файл стилей).
+// Повторяющиеся поверхности при этом обязаны жить в одном месте, иначе шесть
+// модулей разъедутся по паддингам - поэтому они миксины, а не общий модуль.
+
+@mixin section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@mixin section-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+@mixin field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--colors-white);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@mixin text-control {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  background: var(--bg-sunken);
+  color: var(--colors-white);
+  font: inherit;
+  outline: none;
+}
+
+@mixin input-control {
+  @include text-control;
+
+  min-height: 38px;
+  padding: 8px 10px;
+}
+
+// Горизонтальный паддинг - параметром, а не константой внутри: тем же
+// миксином собрана квадратная кнопка-иконка (`.iconButton` в целях), где
+// `box-sizing: border-box` и паддинг больше ширины схлопнули бы контент в
+// ноль и вытолкнули символ за пределы кнопки.
+@mixin button($padding-x: 16px) {
+  display: inline-flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 $padding-x;
+  background: var(--violet-2);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+@mixin button-secondary($padding-x: 16px) {
+  @include button($padding-x);
+
+  background: var(--bg-raised);
+}
+
+@mixin actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

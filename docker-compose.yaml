@@ -1,0 +1,45 @@
+version: '3.9'
+
+x-service-defaults: &service-defaults
+  restart: 'unless-stopped'
+  logging:
+    driver: 'json-file'
+    options:
+      max-size: '20m'
+      max-file: '5'
+
+services:
+  $PROJECT-$APP-$STAGE-$CI_COMMIT_REF_SLUG:
+    <<: *service-defaults
+    image: $IMAGE_FULL
+    container_name: $PROJECT-$APP-$STAGE-$CI_COMMIT_REF_SLUG
+    labels:
+      app: $APP-$STAGE-$CI_COMMIT_REF_SLUG
+      stage: $STAGE
+      metrics: 'prometheus'
+      logging: 'promtail'
+    env_file:
+      - .env
+    environment:
+      - 'VIRTUAL_HOST=$DOMAIN'
+      - 'VIRTUAL_PATH=$APP_PATH'
+      - 'VIRTUAL_PORT=$APP_PORT'
+      - 'VIRTUAL_PROTO=http'
+      - 'LETSENCRYPT_HOST=$DOMAIN'
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://127.0.0.1:8080/healthz || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - projects
+      - nginx-proxy
+
+networks:
+  nginx-proxy:
+    name: nginx-proxy
+    external: true
+  projects:
+    name: projects
+    external: true

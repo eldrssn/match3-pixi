@@ -1,0 +1,72 @@
+{
+  "formatVersion": 2,
+  "id": 1,
+  "moves": 20,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [{ "id": "ice", "count": 8 }],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ]
+}

@@ -1,0 +1,26 @@
+@use '@/shared/styles/mixins' as *;
+
+// Тёмная карта с нейтральной обводкой приходит из примитива (`surface="dark"`).
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  @include option(gap, 12);
+}
+
+.title {
+  @include modal-title;
+}
+
+.description {
+  @include modal-description;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  @include option(gap, 8);
+}

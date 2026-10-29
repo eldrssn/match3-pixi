@@ -1,0 +1,84 @@
+{
+  "formatVersion": 2,
+  "id": 8,
+  "title": "Ледяная шахматка",
+  "moves": 14,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "ice", "count": 14 },
+    { "id": "red", "count": 20 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [9900, 12300]
+}

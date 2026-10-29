@@ -1,0 +1,83 @@
+{
+  "name": "match3-pixi",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b tsconfig.build.json && vite build",
+    "bundle:check": "vite-node scripts/bundleCheck.ts",
+    "build:analyze": "cross-env ANALYZE=true vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "type-check": "tsc --noEmit",
+    "type-check:build": "tsc -b tsconfig.build.json --noEmit",
+    "prebuild": "npm run type-check:build && npm run lint && npm run format:check",
+    "test": "vitest --project unit",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
+    "test:ci": "vitest run",
+    "test:slow": "vitest run --project slow",
+    "levels:report": "vite-node scripts/levelReport.ts",
+    "levels:import": "vite-node scripts/levelImport.ts --",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "npx prettier --write",
+      "npx eslint --fix",
+      "npx eslint --max-warnings=0"
+    ],
+    "*.{json,css,md}": "npx prettier --write"
+  },
+  "browserslist": [
+    "iOS >= 15",
+    "Safari >= 15",
+    "Chrome >= 100",
+    "Android >= 10",
+    "not dead"
+  ],
+  "dependencies": {
+    "@esotericsoftware/spine-pixi-v8": "^4.3.13",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "motion": "^13.0.0",
+    "pixi.js": "^8.22.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-router-dom": "^6.30.2",
+    "zustand": "^4.5.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.5.0",
+    "cross-env": "^10.1.0",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "lint-staged": "^15.5.2",
+    "postcss": "^8.5.15",
+    "prettier": "^3.6.2",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "sass": "^1.93.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4",
+    "vite-plugin-svgr": "^4.5.0",
+    "vitest": "^3.2.4"
+  }
+}

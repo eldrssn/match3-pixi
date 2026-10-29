@@ -1,0 +1,147 @@
+@use "sass:math";
+@use "sass:list";
+@use "sass:string";
+@use "sass:meta";
+@use "./constants" as *;
+@use "./adaptive" as *;
+
+@function strip-unit($number) {
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, $number * 0 + 1);
+  }
+  @return $number;
+}
+
+@function fixed($val, $signs: 100) {
+  @return math.div(round($signs * $val), $signs);
+}
+
+@function adaptive($from, $to, $item) {
+  @if meta.type-of($to) != "list" {
+    $to: ($to);
+  }
+  @if meta.type-of($item) != "list" {
+    $item: ($item);
+  }
+
+  @if meta.type-of($from) == "list" {
+    $result: ();
+    @for $i from 1 through list.length($from) {
+      $result: list.append(
+        $result,
+        adaptive(
+          list.nth($from, $i),
+          list.nth($to, ($i - 1) % list.length($to) + 1),
+          list.nth($item, ($i - 1) % list.length($item) + 1)
+        )
+      );
+    }
+    @return $result;
+  } @else if meta.type-of($from) == "string" {
+    @return $from;
+  }
+
+  $val: fixed(
+    math.div(strip-unit($from), strip-unit(list.nth($to, 1))) * 100,
+    1000
+  );
+
+  @if $val == 0 {
+    @return $val;
+  }
+
+  @return $val * list.nth($item, 1);
+}
+
+// Height-based размеры не должны опираться на браузерный `1vh`: в мобильном
+// браузере он включает спрятанные панели и расходится с видимой высотой (та же
+// причина, по которой существует `app-height`/`--app-viewport-height`). Поэтому `adaptive` считает
+// безразмерный процент, а единицу подставляет `to-app-vh` через `--app-vh`.
+// Width-based функции остаются на `1vw` — ширина вьюпорта стабильна.
+@function to-app-vh($v) {
+  @if meta.type-of($v) == "list" {
+    $result: ();
+    @each $item in $v {
+      $result: list.append($result, to-app-vh($item));
+    }
+    @return $result;
+  }
+
+  // Строки (`auto`, `!important` внутри shorthand) проходят насквозь.
+  @if meta.type-of($v) != "number" {
+    @return $v;
+  }
+
+  // Безразмерный ноль ломает `calc(0 + var(...))`, если значение попадёт в
+  // сумму, поэтому нулю сразу даётся единица.
+  @if $v == 0 {
+    /* stylelint-disable-next-line length-zero-no-unit */
+    @return 0px;
+  }
+
+  @return calc(#{$v} * var(--app-vh, 1vh));
+}
+
+// Общее преобразование чисел и списков через переданный CSS-масштаб.
+@function to-scaled-px($v, $scale) {
+  @if meta.type-of($v) == "list" {
+    $result: ();
+    @each $item in $v {
+      $result: list.append($result, to-scaled-px($item, $scale));
+    }
+    @return $result;
+  }
+
+  // Строки (`auto`, `!important` внутри shorthand) проходят насквозь.
+  @if meta.type-of($v) != "number" {
+    @return $v;
+  }
+
+  $n: strip-unit($v);
+
+  @if $n == 0 {
+    /* stylelint-disable-next-line length-zero-no-unit */
+    @return 0px;
+  }
+
+  @return calc(#{$n} * #{$scale});
+}
+
+// Одна дизайн-величина в реальных CSS-пикселях. Масштаб посчитан один раз в
+// `:root` (`design-scale-root`), поэтому `option` отдаёт одно объявление вместо
+// базового плюс трёх media-веток. Читается как «16 пикселей макета».
+@function to-design-px($v) {
+  @return to-scaled-px($v, var(--design-px, 1px));
+}
+
+@function vh($v) {
+  @return to-app-vh(adaptive($v, $DESIGN-H, 1));
+}
+
+@function vw($v) {
+  @return adaptive($v, $DESIGN-W, 1vw);
+}
+
+@function vwm($v) {
+  @return adaptive($v, $DESIGN-W-M, 1vw);
+}
+
+@function vhm($v) {
+  @return to-app-vh(adaptive($v, $DESIGN-H-M, 1));
+}
+
+@function vwt($v) {
+  @return adaptive($v, $DESIGN-W-T, 1vw);
+}
+
+@function vht($v) {
+  @return to-app-vh(adaptive($v, $DESIGN-H-T, 1));
+}
+
+@function vh-vw($v) {
+  @return adaptive($v, ($DESIGN-H, $DESIGN-W), (1vh, 1vw));
+}
+
+@function vh-vw-m($v) {
+  @return adaptive($v, ($DESIGN-H-M, $DESIGN-W-M), (1vh, 1vw));
+}

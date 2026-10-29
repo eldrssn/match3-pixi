@@ -1,0 +1,24 @@
+@use '@/shared/styles/mixins' as *;
+
+// Фон - во всю ширину окна, партия - в колонке контента: виджет тянется по
+// родителю и занимает всю её высоту.
+.page {
+  @include page-shell;
+
+  background: var(--bg-game);
+}
+
+.frame {
+  @include app-frame;
+}
+
+.result {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--colors-white);
+  @include option(gap, 12);
+  @include option(font-size, 16);
+}

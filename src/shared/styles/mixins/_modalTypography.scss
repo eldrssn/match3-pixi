@@ -1,0 +1,23 @@
+@use '../functions' as *;
+
+/// Заголовок тёмной игровой модалки.
+@mixin modal-title {
+  margin: 0;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-size: to-design-px(24px);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+/// Подпись под заголовком тёмной игровой модалки.
+@mixin modal-description {
+  margin: 0;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-size: to-design-px(14px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}

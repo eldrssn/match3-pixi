@@ -1,0 +1,94 @@
+{
+  "formatVersion": 2,
+  "id": 26,
+  "title": "Болото",
+  "moves": 13,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "slime", "count": 12 },
+    { "id": "red", "count": 30 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "slime" }
+    ]
+  ],
+  "starScores": [9000, 11900]
+}

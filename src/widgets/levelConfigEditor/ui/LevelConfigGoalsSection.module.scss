@@ -1,0 +1,66 @@
+@use './controls' as controls;
+
+.section {
+  @include controls.section;
+}
+
+.sectionTitle {
+  @include controls.section-title;
+}
+
+.field {
+  @include controls.field;
+}
+
+.input {
+  @include controls.input-control;
+}
+
+.button {
+  @include controls.button;
+
+  min-width: 104px;
+}
+
+.goalBuilder {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) minmax(104px, auto);
+  align-items: end;
+}
+
+// Список - отдельной строкой во всю ширину: в узкой колонке настроек рядом
+// с количеством и кнопкой от него оставались иконка и пара букв названия.
+.goalField {
+  grid-column: 1 / -1;
+}
+
+.goalsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.goalItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  padding: 6px 8px;
+}
+
+.goalIcon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.iconButton {
+  @include controls.button(0);
+
+  width: 30px;
+  min-height: 30px;
+  background: var(--overlay-dark);
+}

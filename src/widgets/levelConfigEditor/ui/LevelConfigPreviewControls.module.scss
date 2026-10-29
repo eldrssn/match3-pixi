@@ -1,0 +1,83 @@
+@use '@/shared/styles/mixins' as *;
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-modal);
+  @include option(gap, 8);
+  @include option(padding, 8 10);
+  @include option(border-radius, 8);
+  @include option(font-size, 12);
+}
+
+.toggles {
+  display: flex;
+  flex-wrap: wrap;
+  @include option(column-gap, 12);
+  @include option(row-gap, 4);
+}
+
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  @include option(gap, 4);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  @include option(gap, 6);
+}
+
+.rowLabel {
+  color: var(--text-dim);
+}
+
+.chip {
+  border: 1px solid var(--border-dark);
+  background: var(--bg-sunken);
+  color: var(--colors-white);
+  font: inherit;
+  cursor: pointer;
+  @include option(padding, 4 8);
+  @include option(border-radius, 12);
+}
+
+.chipActive {
+  border-color: var(--violet-border);
+  background: var(--violet-2);
+}
+
+.seed {
+  display: inline-flex;
+  align-items: center;
+  @include option(gap, 6);
+}
+
+.seedInput {
+  box-sizing: border-box;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-sunken);
+  color: var(--colors-white);
+  font: inherit;
+  outline: none;
+  @include option(width, 96);
+  @include option(padding, 4 8);
+  @include option(border-radius, 6);
+}
+
+.restart {
+  margin-left: auto;
+  border: 0;
+  background: var(--violet-2);
+  color: var(--colors-white);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  @include option(padding, 6 14);
+  @include option(border-radius, 8);
+}

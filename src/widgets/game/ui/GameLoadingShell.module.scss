@@ -1,0 +1,23 @@
+@use '@/shared/styles/mixins' as *;
+
+// Раскладка повторяет `.screen` / `.board` из `GameScreen.module.scss`.
+.shell {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  color: var(--colors-white);
+}
+
+.board {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,129 @@
+@use "./constants" as *;
+@use "./functions" as *;
+@use "./adaptive" as *;
+
+@forward "./mixins/index";
+
+// Масштаб дизайн-величины считается один раз здесь, а не в каждом объявлении.
+// Десктоп (ширина от 1024) меряет от высоты окна с базой 700, ландшафт уже
+// 1024 - от высоты с базой 800, портрет уже 1024 - от ширины с базой 360.
+// Отдельной ветки планшета нет: портретный планшет ведёт себя как телефон.
+//
+// Здесь же `--app-frame-width` - ширина колонки контента: макет 360 дизайн-px
+// в тех же единицах, но не шире окна. На портрете это вся ширина, на десктопе -
+// `360 / 700` высоты окна (1920x1080 -> 555px). Колонка и всё, что в ней
+// задано через `option`, масштабируются одним коэффициентом, поэтому
+// пропорции макета держатся при любой высоте окна.
+//
+// Единственное место, где определяются оба токена: локальные переопределения
+// в компонентных стилях запрещены, иначе масштаб разъезжается между слоями.
+@mixin design-scale-root {
+  --design-px: calc(
+    var(--app-viewport-height, 100vh) / #{strip-unit($DESIGN-H)}
+  );
+  --app-frame-width: min(
+    100vw,
+    calc(var(--design-px) * #{strip-unit($DESIGN-W-M)})
+  );
+
+  @include MOBILE-PORT {
+    --design-px: calc(100vw / #{strip-unit($DESIGN-W-M)});
+  }
+
+  @include MOBILE-LAND {
+    --design-px: calc(
+      var(--app-viewport-height, 100vh) / #{strip-unit($DESIGN-H-M)}
+    );
+  }
+}
+
+// Одно значение на все брейкпоинты — обычный случай (проект phone-only,
+// mobile-first): хватает одного объявления через `--design-px`. Разные числа по
+// брейкпоинтам единой переменной не выразить, поэтому такой вызов
+// раскрывается в четыре ветки.
+@function has-single-breakpoint-value($value, $mobile, $tablet) {
+  @return $mobile == $value and $tablet == $value;
+}
+
+@mixin option($property, $value, $mobile: $value, $tablet: $mobile) {
+  @if has-single-breakpoint-value($value, $mobile, $tablet) {
+    #{$property}: to-design-px($value);
+  } @else {
+    #{$property}: vh($value);
+
+    @include MOBILE-PORT {
+      #{$property}: vwm($mobile);
+    }
+
+    @include MOBILE-LAND {
+      #{$property}: vhm($value);
+    }
+
+    @include TABLET {
+      #{$property}: vht($tablet);
+    }
+  }
+}
+
+@mixin option-important($property, $value, $mobile: $value, $tablet: $mobile) {
+  @if has-single-breakpoint-value($value, $mobile, $tablet) {
+    #{$property}: to-design-px($value) !important;
+  } @else {
+    #{$property}: vh($value) !important;
+
+    @include MOBILE-PORT {
+      #{$property}: vwm($mobile) !important;
+    }
+
+    @include MOBILE-LAND {
+      #{$property}: vhm($value) !important;
+    }
+
+    @include TABLET {
+      #{$property}: vht($tablet) !important;
+    }
+  }
+}
+
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin app-height($property: height) {
+  #{$property}: var(--app-viewport-height, 100vh);
+}
+
+/**
+ * Колонка контента внутри страницы: ширина `--app-frame-width` по центру, вся
+ * высота страницы. Фон страница красит сама и во всю ширину окна - колонка
+ * ограничивает только содержимое. Full-width страницы (редактор уровней) её не
+ * используют.
+ */
+@mixin app-frame {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  max-width: var(--app-frame-width, 100vw);
+  min-height: 0;
+}
+
+/**
+ * Каркас страницы: колонка на всю высоту каркаса приложения (`App`).
+ */
+@mixin page-shell {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+}

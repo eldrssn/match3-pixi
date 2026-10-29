@@ -1,0 +1,29 @@
+@use "constants" as *;
+@use "mixins" as *;
+@use "fonts" as *;
+
+html,
+body {
+  color: var(--colors-white);
+  font-family: var(--font-family);
+
+  // Подложка последней инстанции. Любой full-bleed слой (лоадер, overlay) может
+  // на кадр оказаться короче окна, пока `useViewportHeight` не перемерил
+  // высоту. Без этого фона в такой ситуации снизу видна белая полоса; с ним
+  // расхождение геометрии остаётся невидимым.
+  //
+  // Цвет обязан совпадать с тёмными экранами, иначе «невидимым» шов не
+  // остаётся: фон `html` - это ещё и цвет холста документа, которым браузер
+  // красит зоны вне контента (область rubber-band overscroll).
+  background: var(--bg-game-bottom);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  min-height: var(--app-viewport-height, 100vh);
+  overflow-y: auto;
+}

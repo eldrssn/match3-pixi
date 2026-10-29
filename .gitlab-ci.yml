@@ -1,0 +1,157 @@
+include:
+  - project: 'devops/ci-cd/templates'
+    ref: main
+    file: '.ci/.templates.yml'
+
+variables:
+  GROUP_BASENAME: $CI_PROJECT_NAMESPACE_SLUG
+  APP_HOSTNAME: '' #if exist need dot, exemple "backend."
+  ROOT_DOMAIN: $GROUP_BASENAME.dev-01.digital-lab.ru
+  PROJECT: $GROUP_BASENAME
+  PROD_DOMAIN: $GROUP_BASENAME.digital-lab.ru
+
+  APP_PORT: 8080
+  APP_PATH: '/'
+  APP: frontend
+  SERVICE_PORT: 8080
+
+stages:
+  - build
+  - review
+  - deploy
+  - push
+  - notify
+  - release
+
+# Юнит-тесты, включая проверку каталога уровней ботом-солвером
+# (`levelCatalog.bot.test.ts`: уровень не высыхает, проходим, и `casual`
+# проходит его не реже порога «сложный» `LEVEL_DIFFICULTY_WIN_RATE`). Сборка образа (`npm run build`) гоняет
+# только type-check, lint и format - сломанный уровень она не ловит, поэтому
+# выкладки по DAG (`deploy-tst`, `start-review`) ждут эту задачу в `needs`.
+# Если раннерам группы нужны теги, добавьте их сюда так же, как у kaniko-задач.
+test:
+  stage: build
+  image: node:22
+  needs: []
+  interruptible: true
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run test:ci
+
+# Бюджет бандла: сборка и `npm run bundle:check` (scripts/bundleCheck.ts) -
+# размеры стартового чанка, `GameScreen`, `pixi`, `gsap`, `spine` и
+# ленивость движка (в стартовом чанке нет ни Pixi, ни GSAP, ни Spine; Spine
+# грузится только динамически). Образ собирается kaniko отдельно, поэтому
+# бюджет проверяет своя сборка; выкладки ждут эту задачу, как и `test`.
+bundle:
+  stage: build
+  image: node:22
+  needs: []
+  interruptible: true
+  variables:
+    VITE_APP_ENV: production
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - npm run build
+    - npm run bundle:check
+
+build-dev:
+  extends: .kaniko-build-dev
+  variables:
+    # Плейсхолдер CDN-ссылки прошлого заказчика - заменить своим при переносе.
+    BUILDS_ENV_STRING: |-
+      SRC_LINK=https://cdn.example.com/$STAGE/$CI_PIPELINE_IID-$CI_COMMIT_SHORT_SHA
+
+build-tst:
+  extends: .kaniko-build-tst
+  variables:
+    # VITE_* берутся из GitLab File variable BUILDS_ENV.
+    # CI-шаблон материализует её в builds_file.env в build-контексте.
+    BUILDS_ENV_STRING: |-
+      SRC_LINK=https://cdn.example.com/$STAGE/$CI_PIPELINE_IID-$CI_COMMIT_SHORT_SHA
+
+build-prd:
+  extends: .kaniko-build-prd
+  variables:
+    # VITE_* берутся из GitLab File variable BUILDS_ENV (env scope=prd).
+    # CI-шаблон материализует её в builds_file.env в build-контексте.
+    BUILDS_ENV_STRING: |-
+      SRC_LINK=https://cdn.example.com/$CI_COMMIT_TAG
+
+deploy-tst:
+  extends: .deploy-compose-tst
+  # `test` - гейт: сломанный уровень (проверка каталога ботом) не выкладывается.
+  needs:
+    - build-tst
+    - test
+    - bundle
+
+push-to-s3-prd:
+  stage: push
+  extends: .to-s3-prd
+  variables:
+    FROM_PATH: /usr/share/nginx/html
+    AWS_BACKET: "${CI_PROJECT_NAMESPACE_SLUG}-public"
+    TO_PATH: $CI_COMMIT_TAG/
+
+.push-to-s3-tst:
+  stage: push
+  extends: .to-s3-tst
+  variables:
+    FROM_PATH: /usr/share/nginx/html
+    AWS_BACKET: "${CI_PROJECT_NAMESPACE_SLUG}-public"
+  needs:
+    - deploy-tst
+    - build-tst
+
+push-to-s3-dev:
+  stage: push
+  extends: .to-s3-dev
+  variables:
+    FROM_PATH: /usr/share/nginx/html
+    AWS_BACKET: "${CI_PROJECT_NAMESPACE_SLUG}-public"
+
+deploy-notify-tst:
+  extends: .telegram-notify-tst
+  needs:
+    - deploy-tst
+
+start-review:
+  extends: .start-review-compose-dev
+  needs:
+    - build-dev
+    - test
+    - bundle
+
+stop-review:
+  extends: .stop-review-compose-dev
+  allow_failure: true
+
+deploy-notify-dev:
+  extends: .telegram-notify-dev
+  needs:
+    - start-review
+
+healthcheck-dev:
+  variables:
+    SERVIVE_NAME: $PROJECT-$APP-$STAGE-$CI_COMMIT_REF_SLUG
+  extends: .post-deploy-healthcheck-dev
+
+#################################################### release
+
+make_release:
+  extends: .make_release_template
+  stage: release
+  when: manual

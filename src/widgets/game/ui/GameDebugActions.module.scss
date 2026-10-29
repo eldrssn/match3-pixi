@@ -1,0 +1,51 @@
+@use '@/shared/styles/shared' as *;
+@use './sceneInsets' as *;
+
+.actions {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  @include option(gap, 8);
+  bottom: calc(#{to-design-px(20)} + #{$inset-bottom});
+}
+
+// Нарочно приглушённые, в одном ключе с плашками шапки, чтобы не спорить с
+// игровым полем. Это не `ModalButton`: тот тянет ширину на 100% и яркую заливку.
+.actionButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: var(--overlay-dark);
+  color: var(--colors-white);
+  opacity: 0.75;
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  @include pressable(0.94);
+  @include option(padding, 8 12);
+  @include option(border-radius, 14);
+  @include option(font-size, 13);
+
+  &:disabled {
+    opacity: 0.4;
+    pointer-events: none;
+  }
+}
+
+// Зерно партии - справка для QA, а не кнопка: тот же приглушённый ключ, но
+// без отклика на нажатие.
+.seed {
+  display: flex;
+  align-items: center;
+  color: var(--colors-white);
+  opacity: 0.6;
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  @include option(font-size, 11);
+}

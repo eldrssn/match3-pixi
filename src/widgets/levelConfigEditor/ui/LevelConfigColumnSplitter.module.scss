@@ -1,0 +1,30 @@
+// Колонка грида под разделитель нулевой ширины: рамки панелей остаются
+// линией раздела, а зона захвата выступает на обе стороны поверх них.
+.splitter {
+  position: relative;
+  z-index: 2;
+  width: 0;
+  outline: none;
+  cursor: col-resize;
+  touch-action: none;
+
+  &::before {
+    position: absolute;
+    inset: 0 -5px;
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0 -1px;
+    background: transparent;
+    content: '';
+    transition: background-color 0.15s;
+  }
+
+  &:hover::after,
+  &:focus-visible::after,
+  &:active::after {
+    background: var(--colors-positive);
+  }
+}

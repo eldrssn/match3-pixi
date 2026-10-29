@@ -1,0 +1,19 @@
+@use '@/shared/styles/mixins' as *;
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  @include option(width, 25);
+}
+
+// Правая группа полосок зеркальна левой (по дизайну Figma 16448-14184 / 16680-45568).
+.linesMirrored {
+  transform: scaleX(-1);
+}
+
+.lineTile {
+  display: block;
+  @include option(width, 25);
+  @include option(height, 18);
+}

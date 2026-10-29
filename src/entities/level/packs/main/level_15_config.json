@@ -1,0 +1,77 @@
+{
+  "formatVersion": 2,
+  "id": 15,
+  "title": "Подложка",
+  "moves": 15,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [
+    { "id": "floor", "count": 9 },
+    { "id": "red", "count": 25 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [13300, 18700]
+}

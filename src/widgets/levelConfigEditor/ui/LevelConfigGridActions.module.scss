@@ -1,0 +1,19 @@
+@use './controls' as controls;
+
+.actions {
+  @include controls.actions;
+}
+
+.button {
+  @include controls.button;
+}
+
+.buttonSecondary {
+  @include controls.button-secondary;
+}
+
+.button:disabled,
+.buttonSecondary:disabled {
+  cursor: default;
+  opacity: 0.45;
+}

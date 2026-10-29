@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" fill="none">
+  <defs>
+    <linearGradient id="slime-body" x1="0" y1="24" x2="0" y2="156" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9be35a" />
+      <stop offset="1" stop-color="#3a9e2c" />
+    </linearGradient>
+  </defs>
+  <g fill="url(#slime-body)">
+    <path d="M20 74C18 40 46 26 64 40C74 16 108 16 116 40C136 30 152 48 148 74V118Q148 128 138 128H30Q20 128 20 118Z" />
+    <rect x="34" y="110" width="20" height="40" rx="10" />
+    <rect x="76" y="110" width="16" height="30" rx="8" />
+    <rect x="114" y="110" width="20" height="46" rx="10" />
+  </g>
+  <ellipse cx="54" cy="58" rx="20" ry="10" transform="rotate(-23 54 58)" fill="#fff" fill-opacity=".45" />
+  <g stroke="#fff" stroke-opacity=".55" stroke-width="4">
+    <circle cx="104" cy="74" r="9" />
+    <circle cx="122" cy="100" r="5" />
+    <circle cx="64" cy="100" r="6" />
+  </g>
+</svg>

@@ -1,0 +1,7 @@
+// Без `as *`: модуль не даёт namespace-доступа, подключается только ради
+// побочного эффекта - глобальных custom properties и `design-scale-root` в
+// `:root` (см. src/shared/styles/index.scss). Не убирать как "неиспользуемый".
+@use '@/shared/styles/index';
+@use '@/shared/styles/reset' as *;
+@use '@/shared/styles/layers' as *;
+@use '@/shared/styles/typography' as *;

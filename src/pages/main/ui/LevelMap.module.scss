@@ -1,0 +1,124 @@
+@use '@/shared/styles/shared' as *;
+
+.map {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  @include option(padding, 16);
+  @include option(gap, 16);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include option(min-height, 40);
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  @include pressable(0.96);
+  @include option(padding, 10 14);
+  @include option(border-radius, 10);
+  @include option(font-size, 14);
+}
+
+.title {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1;
+  @include option(font-size, 24);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-content: start;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  @include option(gap, 10);
+  @include hide-scrollbar;
+}
+
+.level {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  cursor: pointer;
+  aspect-ratio: 1;
+  @include pressable(0.95);
+  @include option(gap, 4);
+  @include option(border-radius, 14);
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.4;
+    transform: none;
+  }
+}
+
+.levelCurrent {
+  border-color: var(--star-lit);
+  background: var(--bg-modal-top);
+}
+
+.levelLocked {
+  background: var(--bg-sunken);
+}
+
+.number {
+  font-weight: 800;
+  line-height: 1;
+  @include option(font-size, 22);
+}
+
+.stars {
+  display: flex;
+  @include option(gap, 1);
+}
+
+.star {
+  display: block;
+  color: var(--star-dim);
+  @include option(width, 14);
+  @include option(height, 14);
+}
+
+.starLit {
+  color: var(--star-lit);
+}
+
+.reset {
+  align-self: center;
+  border: 0;
+  background: none;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  line-height: 1;
+  text-decoration: underline;
+  opacity: 0.6;
+  cursor: pointer;
+  @include option(padding, 8);
+  @include option(font-size, 13);
+}

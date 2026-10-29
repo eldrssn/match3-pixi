@@ -1,0 +1,47 @@
+@use '@/shared/styles/mixins' as *;
+
+.goals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include option(gap, 10);
+}
+
+.goal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-sunken);
+  @include option(width, 56);
+  @include option(height, 56);
+}
+
+.icon {
+  display: block;
+  @include option(width, 42);
+  @include option(height, 42);
+}
+
+.count {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--colors-black);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1;
+  @include option(min-width, 20);
+  @include option(height, 20);
+  @include option(font-size, 12);
+  @include option(padding, 0 4);
+}

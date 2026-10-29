@@ -1,0 +1,63 @@
+@use '@/shared/styles/mixins' as *;
+
+// Затемнение - на всю доску (оверлей растянут на `.board`), карточка - по
+// центру поля. Выше хайп-фразы: подсказка ждёт игрока, фраза - нет. Доска под
+// подсказкой заблокирована (`.boardLocked` - `pointer-events: none`), и это
+// наследуется: оверлей возвращает себе указатель явно.
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--overlay-scrim);
+  @include option(padding, 0 24);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  @include dark-surface(2px);
+  @include option(max-width, 300);
+  @include option(gap, 10);
+  @include option(padding, 20 18 18);
+  @include option(border-radius, 20);
+}
+
+.icon {
+  display: block;
+  @include option(width, 56);
+  @include option(height, 56);
+}
+
+.title {
+  @include modal-title;
+}
+
+.text {
+  @include modal-description;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  @include pressable(0.97);
+  @include option(margin-top, 6);
+  @include option(padding, 12 18);
+  @include option(border-radius, 10);
+  @include option(font-size, 16);
+}

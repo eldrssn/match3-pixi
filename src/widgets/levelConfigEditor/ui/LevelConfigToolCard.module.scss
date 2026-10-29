@@ -1,0 +1,84 @@
+.card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  min-height: 92px;
+  border: 1px solid var(--border-dark);
+  border-radius: 8px;
+  background: var(--bg-sunken);
+  padding: 10px 12px;
+}
+
+.icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+}
+
+.body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.layer {
+  border-radius: 8px;
+  background: var(--bg-raised);
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.state {
+  margin-left: auto;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.description,
+.origin {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.origin {
+  color: var(--text-dim);
+}
+
+.scheme {
+  display: grid;
+  flex: 0 0 auto;
+  gap: 2px;
+  grid-template-columns: repeat(5, 10px);
+}
+
+.schemeCell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: var(--bg-raised);
+}
+
+.schemeHit {
+  background: var(--violet-1);
+}
+
+.schemeCenter {
+  background: var(--colors-white);
+}

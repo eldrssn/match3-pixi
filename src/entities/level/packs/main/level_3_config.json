@@ -1,0 +1,77 @@
+{
+  "formatVersion": 2,
+  "id": 3,
+  "title": "Ромб",
+  "moves": 22,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [
+    { "id": "yellow", "count": 30 },
+    { "id": "red", "count": 30 }
+  ],
+  "grid": [
+    [
+      { "id": "HOLE" },
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" },
+      { "id": "HOLE" }
+    ],
+    [
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" }
+    ],
+    [
+      { "id": "HOLE" },
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" },
+      { "id": "HOLE" }
+    ]
+  ],
+  "starScores": [11200, 16000]
+}

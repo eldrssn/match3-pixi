@@ -1,0 +1,41 @@
+/**
+ * breakpoints
+ */
+$MOBILE: 320px;
+$TABLET: 768px;
+$DESKTOP: 1024px;
+
+/**
+ * font-family
+ */
+$BASE-FONT: 'Nunito', 'Helvetica', sans-serif;
+$TITLE-FONT: 'Dela Gothic One', 'Helvetica', sans-serif;
+
+/**
+ * color
+ */
+$WHITE: #fff;
+$BLACK: #000;
+$BLUE: #4299ff;
+$GRAY: #808080;
+
+/**
+ * other
+ */
+$DESIGN-W-R: 2200px;
+$DESIGN-W: 1920px;
+$DESIGN-H: 700px;
+$DESIGN-W-M: 360px;
+$DESIGN-H-M: 800px;
+$DESIGN-W-T: 768px;
+$DESIGN-H-T: 1024px;
+$PIC: 20px;
+$CELL-W: 194px;
+$APP-MARGIN: 40px;
+$CUBIC_FUNC: cubic-bezier(0, 0.86, 0.47, 1.53);
+$B-EASE: cubic-bezier(0.17, 0.89, 0.48, 1.33);
+$iosTop: 25px;
+
+// Mock colors
+$MOCK-PRIMARY: #1983ff;
+$MOCK-SECONDARY: #e8f3ff;

@@ -1,0 +1,115 @@
+{
+  "formatVersion": 2,
+  "id": 30,
+  "title": "Финал",
+  "moves": 24,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "drop", "count": 2 },
+    { "id": "cargo", "count": 4 },
+    { "id": "stone", "count": 1 },
+    { "id": "slime", "count": 2 }
+  ],
+  "grid": [
+    [
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" }
+    ],
+    [
+      { "id": "drop" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "chain" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "stone" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "slime" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "chain" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "drop" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "HOLE" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "HOLE" }
+    ]
+  ],
+  "starScores": [18300, 24400]
+}

@@ -1,0 +1,62 @@
+{
+  "formatVersion": 2,
+  "id": 13,
+  "title": "Лёгкая разгрузка",
+  "moves": 16,
+  "colors": ["red", "green", "blue"],
+  "levelGoals": [
+    { "id": "cargo", "count": 6 },
+    { "id": "red", "count": 45 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "cargo", "layers": 1 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 1 },
+      { "id": "cargo", "layers": 1 }
+    ]
+  ],
+  "starScores": [34000, 64700]
+}

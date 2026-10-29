@@ -1,0 +1,90 @@
+// Поверхности с градиентной обводкой.
+//
+// Приём один на весь проект: элементу задаётся прозрачная рамка, а фоном идут
+// два слоя - заливка по `padding-box` (тело) и градиент по `border-box`
+// (сама рамка). Эти 5-8 строк собраны в пресеты, чтобы не копировать их в
+// каждый компонент, а цвета берутся из токенов `styles/_colors.scss`.
+
+@use 'sass:list';
+
+// Нейтральная обводка: светлее сверху, глуше снизу.
+$NEUTRAL-BORDER: linear-gradient(180deg, var(--border-neutral-1) 0%, var(--border-neutral-2) 100%);
+
+@mixin gradient-border-surface($fill, $border, $width: 1px) {
+  border: $width solid transparent;
+  background-image: $fill, $border;
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+
+/// Тёмная карточка модалки с нейтральной обводкой.
+@mixin neutral-card-surface($width: 2px) {
+  @include gradient-border-surface(
+    linear-gradient(var(--bg-modal), var(--bg-modal)),
+    $NEUTRAL-BORDER,
+    $width
+  );
+
+  box-shadow: inset 0 0 1px 3px var(--shadow-inset);
+}
+
+/// Мелкий элемент шапки (кнопка-иконка, счётчик) с нейтральной обводкой.
+@mixin neutral-chip-surface($width: 2px) {
+  @include gradient-border-surface(
+    linear-gradient(173deg, var(--bg-modal-top) 0%, var(--bg-modal) 91%),
+    $NEUTRAL-BORDER,
+    $width
+  );
+
+  box-shadow: inset 0 0 1px 3px var(--shadow-inset);
+}
+
+$VIOLET-FILL: linear-gradient(175deg, var(--violet-1) 0%, var(--violet-2) 100%);
+
+/// Акцентная (фиолетовая) кнопка.
+@mixin violet-surface($width: 1px) {
+  @include gradient-border-surface(
+    $VIOLET-FILL,
+    linear-gradient(0deg, var(--violet-border) 0%, rgb(255 255 255 / 40%) 100%),
+    $width
+  );
+
+  box-shadow:
+    0 3px 2px var(--shadow-inset),
+    0 2px 0 var(--violet-shadow);
+}
+
+/// Нейтральная тёмная кнопка/пункт меню.
+@mixin dark-surface($width: 1px) {
+  @include gradient-border-surface(
+    linear-gradient(175deg, var(--bg-modal-top) 0%, var(--bg-modal) 100%),
+    linear-gradient(0deg, var(--border-dark) 0%, rgb(255 255 255 / 11%) 100%),
+    $width
+  );
+
+  box-shadow:
+    0 3px 2px var(--shadow-inset),
+    0 2px 0 var(--shadow-dark);
+}
+
+/// Общая механика кнопок внутри модалок (геометрия задаётся вызывающим).
+///
+/// `$extra-transitions` дописываются к переходу `transform`, а не перекрывают
+/// его: отдельное объявление `transition` после миксина молча выключало бы
+/// отклик на нажатие или требовало повторять его длительность вручную.
+/// Пример: `@include pressable(0.96, opacity 200ms ease);`.
+@mixin pressable($scale: 0.96, $extra-transitions...) {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  // Одноэлементный comma-список собирается через `list.append`, а не литералом
+  // `(transform 180ms ease,)`: форматтер снимает висящую запятую, и литерал
+  // молча становится space-списком из трёх токенов.
+  $base-transition: list.append((), transform 180ms ease, $separator: comma);
+
+  transition: list.join($base-transition, $extra-transitions, $separator: comma);
+
+  &:active {
+    transform: scale($scale);
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "formatVersion": 2,
+  "id": 16,
+  "title": "Сад в цепях",
+  "moves": 17,
+  "colors": ["yellow", "red", "green", "blue"],
+  "levelGoals": [
+    { "id": "floor", "count": 20 },
+    { "id": "chain", "count": 4 },
+    { "id": "green", "count": 20 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "overlay": "chain", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "overlay": "chain", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "overlay": "chain", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random", "overlay": "chain", "floor": 1 },
+      { "id": "random", "floor": 1 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [17500, 27100]
+}

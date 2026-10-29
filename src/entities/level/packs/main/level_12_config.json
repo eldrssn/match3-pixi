@@ -1,0 +1,94 @@
+{
+  "formatVersion": 2,
+  "id": 12,
+  "title": "Склад",
+  "moves": 24,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "cargo", "count": 12 },
+    { "id": "ice", "count": 4 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 3 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 3 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 3 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 3 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 3 }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 3 }
+    ]
+  ],
+  "starScores": [15100, 17900]
+}

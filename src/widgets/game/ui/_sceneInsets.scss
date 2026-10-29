@@ -1,0 +1,6 @@
+// Отступы сцены от краёв (см. `IGameScreenProps.insets`). Хост задаёт их
+// пропом (инлайновые переменные на корне экрана партии) или своими
+// переменными на любом предке; без обоих - системный safe-area, на обычной
+// странице это ноль. Один источник для всех стилей экрана партии.
+$inset-top: var(--match3-inset-top, env(safe-area-inset-top, 0px));
+$inset-bottom: var(--match3-inset-bottom, env(safe-area-inset-bottom, 0px));

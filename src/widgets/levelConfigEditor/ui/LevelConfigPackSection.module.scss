@@ -1,0 +1,85 @@
+@use '@/shared/styles/mixins' as *;
+@use './controls' as controls;
+
+.section {
+  @include controls.section;
+}
+
+.sectionTitle {
+  @include controls.section-title;
+}
+
+.select {
+  @include controls.input-control;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  @include option(gap, 8);
+}
+
+.field {
+  @include controls.field;
+}
+
+.input {
+  @include controls.input-control;
+
+  &:read-only {
+    color: var(--text-dim);
+  }
+}
+
+.actions {
+  @include controls.actions;
+}
+
+.button {
+  @include controls.button;
+}
+
+.buttonSecondary {
+  @include controls.button-secondary;
+}
+
+.buttonDanger {
+  @include controls.button-secondary;
+
+  color: var(--colors-error);
+}
+
+// Выбор файла открывает кнопка «Импорт…»: родной контрол выглядит чужим в
+// ряду кнопок и не умеет подпись.
+.fileInput {
+  display: none;
+}
+
+.hint {
+  margin: 0;
+  color: var(--text-dim);
+  line-height: 1.4;
+  @include option(font-size, 11);
+}
+
+.errors {
+  border: 1px solid var(--colors-error);
+  background: var(--bg-sunken);
+  line-height: 1.35;
+  @include option(border-radius, 8);
+  @include option(padding, 8 10);
+  @include option(font-size, 11);
+}
+
+.errorsTitle {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.errorList {
+  margin: 0;
+  overflow: auto;
+  @include option(max-height, 160);
+  @include option(padding-left, 16);
+  @include option(margin-top, 6);
+}

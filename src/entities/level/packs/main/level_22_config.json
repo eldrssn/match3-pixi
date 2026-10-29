@@ -1,0 +1,95 @@
+{
+  "formatVersion": 2,
+  "id": 22,
+  "title": "Сокровищница",
+  "moves": 29,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "drop", "count": 3 },
+    { "id": "stone", "count": 4 },
+    { "id": "cargo", "count": 4 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "drop" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "stone" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "stone" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "drop" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "cargo", "layers": 2 },
+      { "id": "cargo", "layers": 2 },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "drop" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "stone" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "stone" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [14600, 17800]
+}

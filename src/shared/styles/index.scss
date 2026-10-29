@@ -1,0 +1,20 @@
+@use "normalize" as *;
+@use "colors";
+@use "globals" as *;
+@use "shared" as *;
+
+:root {
+  // Объявляет `--design-px` - масштаб дизайн-величины. Токен живёт только там.
+  @include design-scale-root;
+
+  // Фолбэк до первого замера: реальную высоту видимой области пишет
+  // `app/hooks/useViewportHeight`.
+  --app-viewport-height: 100vh;
+
+  // 1% реальной высоты окна. Все height-based размеры (`vh`, `vhm`, `vht`, а
+  // значит и `option`) считаются от неё, а не от браузерного `1vh`: в
+  // мобильном браузере `vh` включает спрятанные панели и расходится с видимой
+  // высотой.
+  --app-vh: calc(var(--app-viewport-height, 100vh) / 100);
+  --font-family: "Nunito", sans-serif;
+}

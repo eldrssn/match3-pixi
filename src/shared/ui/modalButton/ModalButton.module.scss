@@ -1,0 +1,38 @@
+@use '@/shared/styles/mixins' as *;
+
+.button {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1;
+  // Переход в неактивное состояние и обратно - плавный, а не скачком
+  // прозрачности: у части кнопок (копирование кода в `details`) он совпадает
+  // со сменой подписи.
+  @include pressable(0.98, opacity 200ms ease);
+  @include option(padding, 14 18);
+  @include option(border-radius, 10);
+  @include option(font-size, 16);
+  border: 1px solid var(--border-dark);
+
+  // `aria-disabled` - неактивная кнопка, которая не теряет фокус (в отличие
+  // от `disabled`): ей гасят временные состояния вроде «Код скопирован».
+  &:disabled,
+  &[aria-disabled='true'] {
+    cursor: default;
+    opacity: 0.4;
+    transform: none;
+  }
+}
+
+.primary {
+  background: var(--bg-raised);
+}
+
+.secondary {
+  background: var(--bg-sunken);
+}

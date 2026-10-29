@@ -1,0 +1,94 @@
+{
+  "formatVersion": 2,
+  "id": 17,
+  "title": "Двойная подложка",
+  "moves": 21,
+  "colors": ["yellow", "red", "violet", "green", "blue"],
+  "levelGoals": [
+    { "id": "floor", "count": 20 },
+    { "id": "ice", "count": 4 }
+  ],
+  "grid": [
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random", "floor": 2 },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ]
+  ],
+  "starScores": [14500, 17200]
+}

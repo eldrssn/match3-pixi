@@ -1,0 +1,40 @@
+@use './controls' as controls;
+
+.section {
+  @include controls.section;
+}
+
+.sectionTitle {
+  @include controls.section-title;
+
+  cursor: pointer;
+}
+
+.section:not([open]) {
+  gap: 0;
+}
+
+.actions {
+  @include controls.actions;
+}
+
+.buttonSecondary {
+  @include controls.button-secondary;
+}
+
+.textarea {
+  @include controls.text-control;
+
+  min-height: 220px;
+  resize: vertical;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.jsonError {
+  color: var(--colors-error);
+  font-size: 12px;
+  line-height: 1.35;
+}

@@ -1,0 +1,104 @@
+@use '@/shared/styles/mixins' as *;
+@use './controls' as controls;
+
+.section {
+  @include controls.section;
+}
+
+.sectionTitle {
+  @include controls.section-title;
+}
+
+.count {
+  color: var(--text-dim);
+}
+
+// Пак в три десятка уровней не должен выталкивать настройки уровня за экран:
+// список прокручивается сам.
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  list-style: none;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-sunken);
+  @include option(max-height, 220);
+  @include option(border-radius, 8);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--colors-white);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  @include option(gap, 8);
+  @include option(padding, 6 10);
+  @include option(font-size, 12);
+
+  &:hover {
+    background: var(--bg-raised);
+  }
+}
+
+.itemActive {
+  background: var(--violet-2);
+
+  &:hover {
+    background: var(--violet-2);
+  }
+}
+
+.number {
+  font-weight: 800;
+  @include option(min-width, 18);
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.titleEmpty {
+  color: var(--text-dim);
+}
+
+.itemActive .titleEmpty {
+  color: var(--colors-white);
+}
+
+.actions {
+  @include controls.actions;
+}
+
+.button {
+  @include controls.button;
+}
+
+.buttonSecondary {
+  @include controls.button-secondary;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}
+
+.buttonDanger {
+  @include controls.button-secondary;
+
+  color: var(--colors-error);
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+}

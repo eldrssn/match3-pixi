@@ -1,0 +1,175 @@
+@use '@/shared/styles/shared' as *;
+
+// Слой модалок — отдельный узел в `body` на всё окно: затемнение ложится на
+// весь однотонный фон, а не только на колонку контента, иначе на десктопе по
+// бокам оставались бы светлые полосы. Сама карточка задана через `option` и
+// по ширине совпадает с колонкой. Высота - видимая область
+// (`--app-viewport-height`), а не `100vh`: иначе низ карточки уезжал бы под
+// панель мобильного браузера.
+.host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--app-layer-modal, 1000);
+  width: 100%;
+  height: var(--app-viewport-height, 100vh);
+  pointer-events: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgb(10 13 45 / 58%);
+  backdrop-filter: blur(2px);
+  pointer-events: auto;
+  will-change: opacity;
+  contain: paint;
+}
+
+.overlayTransparent {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.overlaySolid {
+  background: var(--app-bg);
+  backdrop-filter: none;
+}
+
+.overlayDim {
+  background: rgb(0 0 0 / 40%);
+  backdrop-filter: blur(5px);
+}
+
+.overlayNoBlur {
+  backdrop-filter: none;
+}
+
+// Границы диалога: карточка (см. `ModalLayout`). Своей
+// поверхности для кликов не заводит - `pointer-events` включают потомки.
+.dialog {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+  padding: 0 20px 20px;
+  pointer-events: auto;
+  will-change: opacity, transform;
+  contain: layout;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.wrapFullscreen {
+  overflow: hidden;
+  padding: 0;
+}
+
+.anchor {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  flex-direction: column;
+  @include option(max-width, 328);
+}
+
+.anchorFullscreen {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.content {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--colors-white);
+  box-shadow:
+    0 18px 48px rgb(16 20 64 / 22%),
+    inset 0 1px 0 rgb(255 255 255 / 75%);
+  color: var(--text);
+  contain: paint;
+  pointer-events: auto;
+  @include option(padding, 28 22 22);
+  @include option(border-radius, 28);
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+// Тёмная карта игровых модалок - в примитиве, чтобы модалке не описывать её у
+// себя и не поднимать специфичность через `&.card` ради победы над `.content`.
+.contentDark {
+  align-items: center;
+  color: var(--colors-white);
+  @include neutral-card-surface;
+  @include option(gap, 20);
+  @include option(padding, 24 20);
+  @include option(border-radius, 32);
+}
+
+.contentFullscreen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.contentOverflowVisible {
+  overflow: visible;
+  contain: layout;
+}
+
+// Крестик в углу — на случай, когда в `actions` нет отдельной кнопки чистого
+// закрытия. Абсолютно спозиционирован относительно `.content` (он уже
+// `position: relative`), поэтому не участвует в потоке flex-колонки.
+.closeButton {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  @include pressable;
+  @include option(top, 16);
+  @include option(right, 16);
+  @include option(width, 28);
+  @include option(height, 28);
+}
+
+.closeButtonDark {
+  color: var(--colors-white);
+  @include neutral-chip-surface(2px);
+  @include option(border-radius, 32);
+}
+
+.closeIcon {
+  display: block;
+  @include option(width, 14);
+  @include option(height, 14);
+}

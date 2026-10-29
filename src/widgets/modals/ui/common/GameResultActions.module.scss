@@ -1,0 +1,8 @@
+@use '@/shared/styles/mixins' as *;
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  @include option(gap, 8);
+}

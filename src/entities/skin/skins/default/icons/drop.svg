@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 168" fill="none">
+  <path d="M30 66L56 36L70 66Z" fill="#ffd864" />
+  <path d="M56 36H112L98 66H70Z" fill="#ffe89a" />
+  <path d="M112 36L138 66H98Z" fill="#ffc23d" />
+  <path d="M30 66H70L84 148Z" fill="#f7a81f" />
+  <path d="M70 66H98L84 148Z" fill="#ffc23d" />
+  <path d="M98 66H138L84 148Z" fill="#e38a12" />
+  <path d="M56 36H112L138 66L84 148L30 66Z" stroke="#b8640f" stroke-width="5" stroke-linejoin="round" />
+  <ellipse cx="72" cy="48" rx="10" ry="5" transform="rotate(-17 72 48)" fill="#fff" fill-opacity=".8" />
+</svg>

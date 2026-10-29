@@ -1,0 +1,62 @@
+{
+  "formatVersion": 2,
+  "id": 9,
+  "title": "Ледяные углы",
+  "moves": 18,
+  "colors": ["red", "green", "blue"],
+  "levelGoals": [
+    { "id": "ice", "count": 4 },
+    { "id": "green", "count": 40 }
+  ],
+  "grid": [
+    [
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" }
+    ],
+    [
+      { "id": "random", "overlay": "ice" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random" },
+      { "id": "random", "overlay": "ice" }
+    ]
+  ],
+  "starScores": [36800, 65900]
+}

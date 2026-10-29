@@ -1,0 +1,1 @@
+export { resolveStorage } from './resolveStorage';

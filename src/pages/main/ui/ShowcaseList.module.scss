@@ -1,0 +1,108 @@
+@use '@/shared/styles/shared' as *;
+
+.showcase {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  @include option(padding, 16);
+  @include option(gap, 16);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include option(min-height, 40);
+}
+
+.back {
+  position: absolute;
+  left: 0;
+  border: 1px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  @include pressable(0.96);
+  @include option(padding, 10 14);
+  @include option(border-radius, 10);
+  @include option(font-size, 14);
+}
+
+.title {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1;
+  @include option(font-size, 24);
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  @include option(gap, 18);
+  @include hide-scrollbar;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  @include option(gap, 8);
+}
+
+.groupTitle {
+  margin: 0;
+  font-weight: 800;
+  line-height: 1;
+  opacity: 0.7;
+  text-transform: uppercase;
+  @include option(font-size, 13);
+  @include option(letter-spacing, 1);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  @include option(gap, 8);
+}
+
+.item {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid var(--border-dark);
+  background: var(--bg-raised);
+  color: var(--colors-white);
+  font-family: var(--font-family);
+  text-align: left;
+  cursor: pointer;
+  @include pressable(0.96);
+  @include option(gap, 4);
+  @include option(padding, 10 12);
+  @include option(border-radius, 14);
+}
+
+.itemTitle {
+  font-weight: 800;
+  line-height: 1.1;
+  @include option(font-size, 15);
+}
+
+.itemHint {
+  line-height: 1.2;
+  opacity: 0.7;
+  @include option(font-size, 11);
+}

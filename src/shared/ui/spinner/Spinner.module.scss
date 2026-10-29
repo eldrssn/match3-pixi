@@ -1,0 +1,83 @@
+@use '@/shared/styles/mixins' as *;
+
+.spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @include option(gap, 10);
+  @include option(margin, 10 auto);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2000;
+  margin: 0;
+  background: var(--overlay-dark);
+}
+
+.noBg {
+  background: transparent;
+}
+
+.ring {
+  display: inline-block;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  --spinner-color: var(--colors-white);
+  @include option(--ring-thickness, 12);
+  @include option(width, 50);
+  @include option(height, 50);
+  background: conic-gradient(
+    from 90deg,
+    transparent 0deg,
+    transparent 36deg,
+    var(--spinner-color) 360deg
+  );
+  mask-image: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--ring-thickness)),
+    #000 calc(100% - var(--ring-thickness))
+  );
+  -webkit-mask-image: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--ring-thickness)),
+    #000 calc(100% - var(--ring-thickness))
+  );
+  border-radius: 50%;
+  animation: rotation 1s linear infinite;
+}
+
+// Кольцо внутри карточки модалки: рядом с текстом, а не вместо экрана.
+.ringCompact {
+  @include option(--ring-thickness, 8);
+  @include option(width, 42);
+  @include option(height, 42);
+}
+
+.error {
+  --spinner-color: var(--colors-negative);
+}
+
+.label {
+  margin: 0;
+  color: var(--colors-white);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  @include option(font-size, 24);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

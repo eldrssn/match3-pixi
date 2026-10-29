@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" fill="none">
+  <defs>
+    <linearGradient id="trophy-gold" x1="70" y1="40" x2="210" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe08a" />
+      <stop offset=".55" stop-color="#ffb83a" />
+      <stop offset="1" stop-color="#e3860f" />
+    </linearGradient>
+  </defs>
+  <path d="M86 70H54a8 8 0 0 0-8 8c0 34 22 58 52 62M194 70h32a8 8 0 0 1 8 8c0 34-22 58-52 62" stroke="url(#trophy-gold)" stroke-width="16" stroke-linecap="round" />
+  <path d="M78 46h124v54c0 38-28 66-62 66s-62-28-62-66Z" fill="url(#trophy-gold)" stroke="#b8640f" stroke-width="6" stroke-linejoin="round" />
+  <path d="M124 166h32l6 34h-44Z" fill="url(#trophy-gold)" stroke="#b8640f" stroke-width="6" stroke-linejoin="round" />
+  <rect x="88" y="200" width="104" height="34" rx="8" fill="url(#trophy-gold)" stroke="#b8640f" stroke-width="6" />
+  <path d="M140 72l9 18 20 3-14 14 3 20-18-9-18 9 3-20-14-14 20-3Z" fill="#fff" fill-opacity=".9" />
+  <ellipse cx="100" cy="70" rx="8" ry="20" transform="rotate(12 100 70)" fill="#fff" fill-opacity=".45" />
+</svg>
